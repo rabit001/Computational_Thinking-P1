@@ -1,63 +1,60 @@
-# Computational Thinking – Practical Exercises
+Computational_Thinking-P1
 
-A collection of practical exercises exploring Python object identity, mutability, shallow copying, and Git commit history.
+Task 1: Identity Investigation
 
-This repository records observations and conclusions from the Computational Thinking coursework.
+ Objective:
+To check how memory IDs change when variables are modified.
 
-## Exercises
+ Action:
+Created a file `identity_rabit_mansuri.py` and printed IDs before and after changing values.
 
-### 1. Identity Investigation
+ Observation:
+- Integer, String, Tuple → ID changes  
+- List → ID remains same  
 
-**Objective:** Observe how object identity changes when values are modified.
+ Conclusion:
+Immutable types create new memory, while mutable types modify existing memory.
 
-**Activity:** Created `identity_rabit_mansuri.py` and printed object IDs before and after changing values.
+ Task 2: Nature of Commit History
 
-**Recorded observations:**
-- Integer, string, and tuple: the ID changed after reassignment.
-- List: the ID remained the same when its contents were modified.
+ Action:
+Created a repository and made multiple commits like "Version 1" and "Version 2".
 
-**Conclusion:** The exercise illustrates the difference between immutable and mutable objects. Reassignment of an immutable value can refer to a new object, while modifying a list in place preserves the list object's identity.
+ Question:
+Does "Version 2" still exist?
 
-### 2. Understanding Git Commit History
+ Answer:
+Yes, both versions exist in Git history.
 
-**Activity:** Created a repository and made multiple commits, including commits named "Version 1" and "Version 2".
+Explanation:
+Git does not overwrite commits. Instead, it creates new commits for every change, preserving all versions.
 
-**Question:** Does "Version 2" replace "Version 1"?
+ Conclusion:
+Git stores all versions permanently, proving commits are immutable.
 
-**Observation:** Both commits remain available in the repository's reachable Git history.
+ Task 3: Shallow Copy Behavior
 
-**Conclusion:** Git records changes as new commits rather than overwriting earlier commits. This makes it possible to inspect and compare previous versions.
+Action:
+Created a nested list and copied it using `list()`, then modified the copied list.
 
-### 3. Shallow Copy Behaviour
+ Observation:
+The original list also changed.
 
-**Activity:** Created a nested list, copied it using Python's `list()` constructor, and then modified the copied list.
+ Explanation:
+Shallow copy shares inner references, so changes affect both lists.
 
-**Observation:** A change to a nested object through the copied list was also visible through the original list.
+Conclusion:
+Deep copy should be used to avoid this issue.
+Task 4: Commit Immutability
 
-**Conclusion:** A shallow copy creates a new outer list but keeps references to the same nested objects. A deep copy is useful when independent copies of nested objects are required.
+ Action:
+Created a commit, noted its hash, then modified the commit message using `git commit --amend`.
 
-### 4. Commit Immutability
+ Observation:
+The commit hash changed.
 
-**Activity:** Created a commit, noted its hash, and then changed its commit message using `git commit --amend`.
+Explanation:
+Commit hash depends on content and metadata, so any change creates a new commit.
 
-**Observation:** The amended commit had a different hash.
-
-**Conclusion:** A commit hash is calculated from the commit's content and metadata. Amending a commit creates a new commit object with a new hash.
-
-## Concepts Covered
-
-- Python object identity
-- Mutable and immutable data types
-- Shallow and deep copying
-- Git commits and version history
-- Commit hashes and `git commit --amend`
-
-## Tools
-
-- Python
-- Git
-- GitHub
-
----
-
-**Author:** [Rabit Mansuri](https://github.com/rabit001)
+ Conclusion:
+Git commits are immutable and cannot be changed once created.
